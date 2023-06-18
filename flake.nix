@@ -13,16 +13,16 @@
   }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux.pkgs;
-    in {
+    in with pkgs; {
       packages.x86_64-linux.default = pkgs.mkShell {
         name = "cs50 dev environment";
         packages = [
-          pkgs.wget
-	  pkgs.unzip
-	  pkgs.tree
-	  pkgs.git
-          pkgs.python310
-	  pkgs.libcs50
+          wget
+	  unzip
+	  tree
+	  git
+          python310
+	  libcs50
         ];
         shellHook = ''
           echo "This is CS50"
